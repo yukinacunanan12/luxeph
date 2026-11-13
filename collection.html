@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Collections | Moda Luxe PH</title>
+
+<link rel="icon" type="image/jpeg" href="moda-luxe-ph-logo.jpeg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --cream: #fbf9f5;
+    --background: #f7f3ec;
+    --beige: #eee5d8;
+    --brown: #49382b;
+    --dark: #38291f;
+    --text: #655343;
+    --gold: #b69a7b;
+    --champagne: #d8c2a2;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--background);
+    color: var(--dark);
+}
+
+/* HEADER */
+
+header {
+    background: var(--cream);
+    padding: 16px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #d9c9b6;
+    box-shadow: 0 3px 15px rgba(100,75,45,.07);
+}
+
+/* LOGO */
+
+.brand-logo {
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+    background: #f7f0e7;
+    border: 2px solid #c4a77d;
+
+    box-shadow:
+        0 0 8px rgba(193,157,108,.25),
+        0 0 18px rgba(193,157,108,.18);
+
+    animation: logoGlow 4s ease-in-out infinite;
+}
+
+.brand-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    display: block;
+}
+
+.brand-logo::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 45%;
+    height: 200%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.7),
+        transparent
+    );
+    transform: rotate(25deg);
+    animation: logoShine 5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes logoGlow {
+    0%, 100% {
+        box-shadow: 0 0 8px rgba(193,157,108,.25),
+                    0 0 18px rgba(193,157,108,.18);
+    }
+
+    50% {
+        box-shadow: 0 0 13px rgba(193,157,108,.45),
+                    0 0 25px rgba(193,157,108,.3);
+    }
+}
+
+@keyframes logoShine {
+    0%, 55% { left: -100%; }
+    85%, 100% { left: 150%; }
+}
+
+/* NAVIGATION */
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: var(--brown);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 6px;
+    transition: .3s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width .3s ease;
+}
+
+nav a:hover {
+    color: #987957;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* COLLECTION HERO */
+
+.collection-hero {
+    min-height: 440px;
+    padding: 95px 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255,255,255,.75),
+            transparent 70%
+        ),
+        linear-gradient(135deg, #f8f4ed, #e9dece);
+}
+
+.collection-hero::before {
+    content: "";
+    position: absolute;
+    inset: 22px;
+    border: 1px solid rgba(182,154,123,.55);
+    pointer-events: none;
+}
+
+.collection-hero::after {
+    content: "✦";
+    position: absolute;
+    right: 8%;
+    bottom: 0;
+    font-size: 180px;
+    color: rgba(182,154,123,.09);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-kicker {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: #856a4e;
+    margin-bottom: 20px;
+}
+
+.collection-hero h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(60px, 9vw, 100px);
+    font-weight: 700;
+    letter-spacing: 4px;
+    line-height: 1;
+    color: var(--brown);
+
+    background: linear-gradient(
+        110deg,
+        #49382b,
+        #a18463,
+        #49382b,
+        #c2a47f
+    );
+
+    background-size: 250% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: titleShine 7s linear infinite;
+}
+
+@keyframes titleShine {
+    to {
+        background-position: 250% center;
+    }
+}
+
+.hero-decoration {
+    color: #a18463;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 23px;
+    letter-spacing: 10px;
+    margin: 20px 0;
+}
+
+.hero-description {
+    color: #695644;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 2;
+    max-width: 580px;
+    margin: auto;
+}
+
+/* INTRODUCTION */
+
+.collection-intro {
+    padding: 75px 8%;
+    text-align: center;
+    background: var(--cream);
+}
+
+.section-kicker {
+    color: #987957;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    margin-bottom: 18px;
+}
+
+.collection-intro h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(38px, 5vw, 58px);
+    color: var(--brown);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.collection-intro p:last-child {
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 2;
+    max-width: 650px;
+    margin: auto;
+}
+
+/* BRAND NAVIGATION */
+
+.brand-navigation {
+    padding: 28px 6%;
+    background: #eee5d8;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 13px;
+    border-top: 1px solid #d7c5ad;
+    border-bottom: 1px solid #d7c5ad;
+}
+
+.brand-navigation a {
+    color: #594331;
+    border: 1px solid #cbb69b;
+    padding: 11px 22px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    background: rgba(251,249,245,.8);
+    transition: .3s ease;
+}
+
+.brand-navigation a:hover {
+    background: #b69a7b;
+    color: white;
+    box-shadow: 0 4px 15px rgba(100,75,45,.15);
+}
+
+/* BRAND SECTIONS */
+
+.brand-section {
+    padding: 85px 8%;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #ddcdb9;
+}
+
+.brand-section:nth-of-type(even) {
+    background: #fbf9f5;
+}
+
+.brand-section:nth-of-type(odd) {
+    background: #f1e9dd;
+}
+
+.brand-heading {
+    max-width: 1150px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.brand-number {
+    display: block;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 19px;
+    color: #a18463;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+}
+
+.brand-heading h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(55px, 7vw, 80px);
+    font-weight: 700;
+    letter-spacing: 7px;
+    color: var(--brown);
+    line-height: 1;
+    margin-bottom: 15px;
+}
+
+.brand-heading p {
+    max-width: 650px;
+    margin: auto;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 2;
+    color: var(--text);
+}
+
+.brand-divider {
+    width: 75px;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #b69a7b,
+        transparent
+    );
+    margin: 25px auto;
+}
+
+/* PHOTO COLLAGE */
+
+.photo-grid {
+    max-width: 1150px;
+    height: 570px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 13px;
+}
+
+.photo {
+    position: relative;
+    overflow: hidden;
+    background: #e1d5c5;
+    border: 1px solid rgba(182,154,123,.5);
+    box-shadow: 0 5px 18px rgba(80,60,40,.08);
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform .8s ease, filter .8s ease;
+}
+
+.photo::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 55%;
+    height: 100%;
+    background: linear-gradient(
+        100deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+    );
+    transform: skewX(-18deg);
+    transition: left .8s ease;
+    pointer-events: none;
+}
+
+.photo:hover img {
+    transform: scale(1.055);
+    filter: brightness(1.04);
+}
+
+.photo:hover::after {
+    left: 150%;
+}
+
+.photo-one {
+    grid-row: span 2;
+}
+
+.photo-six {
+    grid-column: span 2;
+}
+
+/* BRAND QUOTE */
+
+.brand-quote {
+    text-align: center;
+    margin: 32px auto 0;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 600;
+    color: #806447;
+    letter-spacing: .5px;
+}
+
+/* BACK TO TOP */
+
+.back-top {
+    display: block;
+    width: fit-content;
+    margin: 50px auto 0;
+    text-decoration: none;
+    color: #806447;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border-bottom: 1px solid #b69a7b;
+    padding-bottom: 6px;
+    transition: .3s ease;
+}
+
+.back-top:hover {
+    color: #49382b;
+    letter-spacing: 3px;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 45px 20px;
+    text-align: center;
+    background: #eee5d8;
+    color: #6e5a47;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 2;
+    border-top: 1px solid #d9c9b6;
+}
+
+/* SCROLL REVEAL */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .photo-grid {
+        height: 480px;
+        grid-template-columns: 1.2fr 1fr 1fr;
+    }
+
+    .photo-six {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 650px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 18px 5%;
+    }
+
+    .brand-logo {
+        width: 76px;
+        height: 76px;
+    }
+
+    nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    nav a {
+        font-size: 9px;
+    }
+
+    .collection-hero {
+        min-height: 380px;
+        padding: 75px 6%;
+    }
+
+    .collection-hero::before {
+        inset: 12px;
+    }
+
+    .collection-hero h1 {
+        font-size: 55px;
+    }
+
+    .collection-intro {
+        padding: 60px 7%;
+    }
+
+    .brand-section {
+        padding: 65px 6%;
+    }
+
+    .brand-heading h2 {
+        font-size: 60px;
+    }
+
+    .photo-grid {
+        height: auto;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 260px 190px 190px;
+        gap: 9px;
+    }
+
+    .photo-one {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    .photo-six {
+        grid-column: span 1;
+    }
+
+    .brand-quote {
+        font-size: 21px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+</style>
+</head>
+
+<body id="top">
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="brand-logo">
+        <img src="moda-luxe-ph-logo.jpeg" alt="Moda Luxe PH Logo">
+    </div>
+
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="collection.html">Collection</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+
+</header>
+
+<!-- COLLECTION HERO -->
+
+<section class="collection-hero">
+
+    <div class="hero-content">
+
+        <p class="hero-kicker">MODA LUXE PH PRESENTS</p>
+
+        <h1>THE COLLECTION</h1>
+
+        <p class="hero-decoration">✦ &nbsp; ✧ &nbsp; ✦</p>
+
+        <p class="hero-description">
+            A curated selection of iconic designs, timeless silhouettes,
+            and beautifully crafted details.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- INTRODUCTION -->
+
+<section class="collection-intro">
+
+    <p class="section-kicker">DISCOVER THE ICONS</p>
+
+    <h2>Elegance in Every Collection</h2>
+
+    <p>
+        Explore our selection of timeless designs, elegant silhouettes,
+        and distinctive styles. Each collection expresses its own
+        personality, creativity, and craftsmanship.
+    </p>
+
+</section>
+
+<!-- BRAND NAVIGATION: INITIALS ONLY -->
+
+<div class="brand-navigation">
+    <a href="#gc">GC</a>
+    <a href="#lv">LV</a>
+    <a href="#cd">CD</a>
+    <a href="#gy">GY</a>
+    <a href="#bb">BB</a>
+    <a href="#bc">BC</a>
+    <a href="#hs">HS</a>
+    <a href="#ysl">YSL</a>
+    <a href="#lw">LW</a>
+</div>
+
+<!-- GC -->
+
+<section class="brand-section reveal" id="gc">
+
+    <div class="brand-heading">
+        <span class="brand-number">01 — THE COLLECTION</span>
+        <h2>GC</h2>
+        <div class="brand-divider"></div>
+        <p>
+            Distinctive details, elegant designs, and a timeless
+            sense of style.
+        </p>
+    </div>
+
+    <div class="photo-grid">
+        <div class="photo photo-one"><img src="gucci-1.jpg" alt="GC collection 1"></div>
+        <div class="photo"><img src="gucci-2.jpg" alt="GC collection 2"></div>
+        <div class="photo"><img src="gucci-3.jpg" alt="GC collection 3"></div>
+        <div class="photo"><img src="gucci-4.jpg" alt="GC collection 4"></div>
+        <div class="photo"><img src="gucci-5.jpg" alt="GC collection 5"></div>
+        <div class="photo photo-six"><img src="gucci-6.jpg" alt="GC collection 6"></div>
+    </div>
+
+    <p class="brand-quote">"A statement of individuality."</p>
+    <a href="#top" class="back-top">BACK TO TOP ↑</a>
+
+</section>
+
+<!-- LV -->
+
+<section class="brand-section reveal" id="lv">
+
+    <div class="brand-heading">
+        <span class="brand-number">02 — THE COLLECTION</span>
+        <h2>LV</h2>
+        <div class="brand-divider"></div>
+        <p>
+            Classic patterns, refined silhouettes, and sophisticated
+            designs for every occasion.
+        </p>
+    </div>
+
+    <div class="photo-grid">
+        <div class="photo photo-one"><img src="lv-1.jpg" alt="LV collection 1"></div>
+        <div class="photo"><img src="lv-2.jpg" alt="LV collection 2"></div>
+        <div class="photo"><img src="lv-3.jpg" alt="LV collection 3"></div>
+        <div class="photo"><img src="lv-4.jpg" alt="LV collection 4"></div>
+        <div class="photo"><img src="lv-5.jpg" alt="LV collection 5"></div>
+        <div class="photo photo-six"><img src="lv-6.jpg" alt="LV collection 6"></div>
+    </div>
+
+    <p class="brand-quote">"Elegance that goes everywhere."</p>
+    <a href="#top" class="back-top">BACK TO TOP ↑</a>
+
+</section>
+
+<!-- CD -->
+
+<section class="brand-section reveal" id="cd">
+
+    <div class="brand-heading">
+        <span class="brand-number">03 — THE COLLECTION</span>
+        <h2>CD</h2>
+        <div class="brand-divider"></div>
+        <p>
+            Graceful silhouettes, delicate details, and beautifully
+            refined designs.
+        </p>
+    </div>
+
+    <div class="photo-grid">
+        <div class="photo photo-one"><img src="dior-1.jpg" alt="CD collection 1"></div>
+        <div class="photo"><img src="dior-2.jpg" alt="CD collection 2"></div>
+        <div class="photo"><img src="dior-3.jpg" alt="CD collection 3"></div>
+        <div class="photo"><img src="dior-4.jpg" alt="CD collection 4"></div>
+        <div class="photo"><img src="dior-5.jpg" alt="CD collection 5"></div>
+        <div class="photo photo-six"><img src="dior-6.jpg" alt="CD collection 6"></div>
+    </div>
+
+    <p class="brand-quote">"Where elegance becomes art."</p>
+    <a href="#top" class="back-top">BACK TO TOP ↑</a>
+
+</section>
+
+<!-- GY -->
+
+<section class="brand-section reveal" id="gy">
+
+    <div class="brand-heading">
+        <span class="brand-number">04 — THE COLLECTION</span>
+        <h2>GY</h2>
+        <div class="brand-divider"></div>
+        <p>
+            Distinctive patterns, heritage-inspired details,
+            and unique designs.
+        </p>
+    </div>
+
+    <div class="photo-grid">
+        <div class="photo photo-one"><img src="goyard-1.jpg" alt="GY collection 1"></div>
+        <div class="photo"><img src="goyard-2.jpg" alt="GY collection 2"></div>
+        <div class="photo"><img src="goyard-3.jpg" alt="GY collection 3"></div>
+        <div class="photo"><img src="goyard-4.jpg" alt="GY collection 4"></div>
+        <div class="photo"><img src="goyard-5.jpg" alt="GY collection 5"></div>
+        <div class="photo photo-six"><img src="goyard-6.jpg" alt="GY collection 6"></div>
+    </div>
+
+    <p class="brand-quote">"A signature that stands apart."</p>
+    <a href="#top" class="back-top">BACK TO TOP ↑</a>
+
+</section>
+
+<!-- BB -->
+
+<section class="brand-section reveal" id="bb">
+
+    <div class="brand-heading">
+        <span class="brand-number">05 — THE COLLECTION</span>
+        <h2>BB</h2>
+        <div class="brand-divider"></div>
+        <p>
+            Classic patterns, refined details, and effortless
+            sophistication.
+        </p>
+    </div>
+
+    <div class="photo-grid">
+        <div class="photo photo-one"><img src="burberry-1.jpg" alt="BB collection 1"></div>
+        <div class="photo"><img src="burberry-2.jpg" alt="BB collection 2"></div>
+        <div class="photo"><img src="burberry-3.jpg" alt="BB collection 3"></div>
+        <div class="photo"><img src="burberry-4.jpg" alt="BB collection 4"></div>
+        <div class="photo"><img src="burberry-5.jpg" alt="BB collection 5"></div>
+        <div class="photo photo-six"><img src="burberry-6.jpg" alt="BB collection 6"></div>
+    </div>
+
+    <p class="brand-quote">"Tradition, beautifully reimagined."</p>
+    <a href="#top" class="back-top">BACK TO TOP ↑</a>
+
+</section>
+
+<!-- BC -->
+
+<section class="brand-section reveal" id="bc">
+
+    <div class="brand-heading">
+        <span class="brand-number">06 — THE COLLECTION</span>
+        <h2>BC</h2>
+        <div class="brand-divider"></div>
+        <p>
+            Contemporary shapes, distinctive proportions,
+            and a modern approach to style.
+        </p>
+    </div>
+
+    <div class="photo-grid">
+        <div class="photo photo-one"><img src="balenciaga-1.jpg" alt="BC collection 1"></div>
+        <div class="photo"><img src="balenciaga-2.jpg" alt="BC collection 2"></div>
+        <div class="photo"><img src="balenciaga-3.jpg" alt="BC collection 3"></div>
+        <div class="photo"><img src="balenciaga-4.jpg" alt="BC collection 4"></div>
+        <div class="photo"><img src="balenciaga-5.jpg" alt="BC collection 5"></div>
+        <div class="photo photo-six"><img src="balenciaga-6.jpg" alt="BC collection 6"></div>
+    </div>
+
+    <p class="brand-quote">"Modern style with a bold perspective."</p>
+    <a href="#top" class="back-top">BACK TO TOP ↑</a>
+
+</section>
+
+<!-- HS -->
+
+<section class="brand-section reveal" id="hs">
+
+    <div class="brand-heading">
+        <span class="brand-number">07 — THE COLLECTION</span>
+        <h2>HS</h2>
+        <div class="brand-divider"></div>
+        <p>
+            Beautiful craftsmanship, elegant shapes,
+            and refined details.
+        </p>
+    </div>
+
+    <div class="photo-grid">
+        <div class="photo photo-one"><img src="hermes-1.jpg" alt="HS collection 1"></div>
+        <div class="photo"><img src="hermes-2.jpg" alt="HS collection 2"></div>
+        <div class="photo"><img src="hermes-3.jpg" alt="HS collection 3"></div>
+        <div class="photo"><img src="hermes-4.jpg" alt="HS collection 4"></div>
+        <div class="photo"><img src="hermes-5.jpg" alt="HS collection 5"></div>
+        <div class="photo photo-six"><img src="hermes-6.jpg" alt="HS collection 6"></div>
+    </div>
+
+    <p class="brand-quote">"Luxury in its most graceful form."</p>
+    <a href="#top" class="back-top">BACK TO TOP ↑</a>
+
+</section>
+
+<!-- YSL -->
+
+<section class="brand-section reveal" id="ysl">
+
+    <div class="brand-heading">
+        <span class="brand-number">08 — THE COLLECTION</span>
+        <h2>YSL</h2>
+        <div class="brand-divider"></div>
+        <p>
+            Clean lines, structured silhouettes, and confident
+            simplicity for a polished look.
+        </p>
+    </div>
+
+    <div class="photo-grid">
+        <div class="photo photo-one"><img src="ysl-1.jpg" alt="YSL collection 1"></div>
+        <div class="photo"><img src="ysl-2.jpg" alt="YSL collection 2"></div>
+        <div class="photo"><img src="ysl-3.jpg" alt="YSL collection 3"></div>
+        <div class="photo"><img src="ysl-4.jpg" alt="YSL collection 4"></div>
+        <div class="photo"><img src="ysl-5.jpg" alt="YSL collection 5"></div>
+        <div class="photo photo-six"><img src="ysl-6.jpg" alt="YSL collection 6"></div>
+    </div>
+
+    <p class="brand-quote">"Confidence in every detail."</p>
+    <a href="#top" class="back-top">BACK TO TOP ↑</a>
+
+</section>
+
+<!-- LW -->
+
+<section class="brand-section reveal" id="lw">
+
+    <div class="brand-heading">
+        <span class="brand-number">09 — THE COLLECTION</span>
+        <h2>LW</h2>
+        <div class="brand-divider"></div>
+        <p>
+            Artistic designs, thoughtful shapes, and creative
+            details that bring individuality to every look.
+        </p>
+    </div>
+
+    <div class="photo-grid">
+        <div class="photo photo-one"><img src="loewe-1.jpg" alt="LW collection 1"></div>
+        <div class="photo"><img src="loewe-2.jpg" alt="LW collection 2"></div>
+        <div class="photo"><img src="loewe-3.jpg" alt="LW collection 3"></div>
+        <div class="photo"><img src="loewe-4.jpg" alt="LW collection 4"></div>
+        <div class="photo"><img src="loewe-5.jpg" alt="LW collection 5"></div>
+        <div class="photo photo-six"><img src="loewe-6.jpg" alt="LW collection 6"></div>
+    </div>
+
+    <p class="brand-quote">"Creativity in every silhouette."</p>
+    <a href="#top" class="back-top">BACK TO TOP ↑</a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    <p>MODA LUXE PH</p>
+    <p>Timeless pieces. Effortless elegance.</p>
+    <p>Contact: hello@modaluxeph.com</p>
+    <p>© 2026 Moda Luxe PH. All rights reserved.</p>
+</footer>
+
+<!-- SCROLL ANIMATION -->
+
+<script>
+
+const revealElements = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+        }
+
+    });
+
+}, {
+    threshold: 0.10
+});
+
+revealElements.forEach(element => {
+    observer.observe(element);
+});
+
+</script>
+
+</body>
+</html>
+</html>
